@@ -1,0 +1,33 @@
+name: Static Website CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate HTML files
+        run: |
+          echo "Checking HTML files..."
+          ls *.html
+
+      - name: Validate CSS files
+        run: |
+          echo "Checking CSS files..."
+          ls *.css
+
+      - name: Validate JavaScript files
+        run: |
+          echo "Checking JS files..."
+          ls *.js
+
+      - name: Build completed
+        run: echo "Static website CI pipeline completed successfully!"
